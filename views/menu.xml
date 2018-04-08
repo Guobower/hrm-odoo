@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="hrm_root_menu" name="Quản Lý Nhân Sự" sequence="1"/>
+            <menuitem id="hrm_nhanvien_menu" name="Nhân Viên" parent="hrm_root_menu"
+                      action="hrm_nhanvien_act" sequence="1"/>
+            <menuitem id="hrm_phongban_menu" name="Phòng Ban" parent="hrm_root_menu"
+                      action="hrm_phongban_act" sequence="5"/>
+    </data>
+</odoo>
