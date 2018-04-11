@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hrm_chucvu_act" model="ir.actions.act_window">
+            <field name="name">Chức Vụ</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hrm.chucvu</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record id="hrm_chucvu_kanban" model="ir.ui.view">
+             <field name="name">Chức Vụ</field>
+             <field name="model">hrm.chucvu</field>
+             <field name="arch" type="xml">
+                <kanban>
+                    <field name="macv"/>
+                    <field name="name"/>
+                    <field name="sonv"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name" /> <br/>
+                                    </strong>
+
+                                    Số Nhân Viên: <field name="sonv" />
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+             </field>
+        </record>
+
+
+        <record id="hrm_chucvu_tree" model="ir.ui.view">
+            <field name="name">Chức Vụ</field>
+            <field name="model">hrm.chucvu</field>
+            <field name="arch" type="xml">
+                <tree string="Chức Vụ">
+                    <field name="macv"/>
+                    <field name="name"/>
+                    <field name="sonv"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

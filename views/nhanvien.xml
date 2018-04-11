@@ -5,33 +5,108 @@
             <field name="name">Nhân Viên</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hrm.nhanvien</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record id="hrm_nhanvien_kanban" model="ir.ui.view">
+             <field name="name">Nhân Viên</field>
+             <field name="model">hrm.nhanvien</field>
+             <field name="arch" type="xml">
+                <kanban>
+                    <field name="manv"/>
+                    <field name="hoten"/>
+                    <field name="phongban"/>
+                    <field name="chucvu"/>
+                    <field name="email"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <img t-att-src="kanban_image('hrm.nhanvien', 'anh', record.id.value)"
+                                     t-att-title="record.id.value"
+                                     width="64" height="64"
+                                     class="o_kanban_image pull-left" />
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        Mã Nhân Viên: <field name="manv" /> <br/>
+                                        Họ Tên: <field name="hoten" />
+                                    </strong>
+                                    <br/>
+                                    Phòng Ban: <field name="phongban" /> <br/>
+                                    Chức Vụ: <field name="chucvu" /> <br/>
+                                    Email: <field name="email" />
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+             </field>
         </record>
 
         <record id="hrm_nhanvien_tree" model="ir.ui.view">
             <field name="name">Nhân Viên</field>
             <field name="model">hrm.nhanvien</field>
             <field name="arch" type="xml">
-                <tree string="nhanvien">
-                    <field name="manv"/>
+                <tree string="Nhân viên">
                     <field name="hoten"/>
+                    <field name="gioitinh"/>
+                    <field name="ngaysinh"/>
+                    <field name="diachi"/>
+                    <field name="phongban"/>
+                    <field name="chucvu" />
                 </tree>
             </field>
         </record>
 
         <record id="hrm_nhanvien_form" model="ir.ui.view">
-            <field name="name">Nhân Viên</field>
+            <field name="name">Thông tin nhân viên</field>
             <field name="model">hrm.nhanvien</field>
             <field name="arch" type="xml">
-                <form string="nv">
+                <form string="">
                     <sheet>
-                        <field name="anh" widget="image" class="oe_avatar"></field>
+                        <field name="anh" widget="image" class="oe_avatar" />
                         <div class="oe_title">
                             <label for="name"/>
                             <h1>
                                 <field name="hoten" placeholder="Họ tên nhân viên"/>
                             </h1>
                         </div>
+
+                        <notebook>
+                             <page string="Thông tin nhân viên">
+                                <group>
+                                    <group>
+                                        <field name="manv" />
+                                        <field name="gioitinh" />
+                                        <field name="ngaysinh" />
+                                        <field name="bangcap" />
+                                    </group>
+                                    <group>
+                                        <field name="socmt" />
+                                        <field name="email" />
+                                        <field name="phongban" />
+                                        <field name="chucvu"/>
+                                    </group>
+
+                                    <field name="lichdieuchuyen"/>
+                                </group>
+                            </page>
+
+                            <page string="Thông tin liên hệ">
+                                <group>
+                                    <group>
+                                        <field name="sdt" />
+                                        <field name="tongiao" />
+                                        <field name="noisinh"/>
+                                    </group>
+                                    <group>
+                                        <field name="dantoc" />
+                                        <field name="quequan"/>
+                                        <field name="diachi" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
                     </sheet>
                 </form>
             </field>

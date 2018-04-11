@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hrm_lichdieuchuyen_act" model="ir.actions.act_window">
+            <field name="name">Lịch điều chuyển</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hrm.lichdieuchuyen</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <record id="hrm_lichdieuchuyen_tree" model="ir.ui.view">
+            <field name="name">lịch điều chuyển</field>
+            <field name="model">hrm.lichdieuchuyen</field>
+            <field name="arch" type="xml">
+                <tree string="Lịch">
+                    <field name="nhanvien"/>
+                    <field name="loai"/>
+                    <field name="chucvu_cu" />
+                    <field name="chucvu_moi" />
+                    <field name="phongban_cu" />
+                    <field name="phongban_moi" />
+                    <field name="date" />
+                    <field name="date_over" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="hrm_lichdieuchuyen_form" model="ir.ui.view">
+            <field name="name">Lịch điều chuyển</field>
+            <field name="model">hrm.lichdieuchuyen</field>
+            <field name="arch" type="xml">
+                <form string="Lịch">
+                    <sheet>
+                        <group>
+                             <field name="loai"/>
+                             <field name="nhanvien"/>
+                            <group>
+                                <field name="chucvu_cu" attrs="{'invisible':[('loai','in',['0'])]}"/>
+                                <field name="chucvu_moi" attrs="{'invisible':[('loai','in',['0'])]}"/>
+                                <field name="phongban_cu" attrs="{'invisible':[('loai','not in',['0'])]}"/>
+                                <field name="phongban_moi" attrs="{'invisible':[('loai','not in',['0'])]}"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="date_over"/>
+                            </group>
+
+                            <field name="lydo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

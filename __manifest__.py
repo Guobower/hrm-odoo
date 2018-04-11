@@ -13,6 +13,8 @@
     'data': [
         'views/nhanvien.xml',
         'views/phongban.xml',
+        'views/chucvu.xml',
+        'views/lichdieuchuyen.xml',
         'views/menu.xml',
     ],
     'demo': [

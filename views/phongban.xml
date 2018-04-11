@@ -5,9 +5,75 @@
            <field name="name">Phòng Ban</field>
            <field name="type">ir.actions.act_window</field>
            <field name="res_model">hrm.phongban</field>
-           <field name="view_mode">tree,form</field>
+           <field name="view_mode">kanban,form,tree</field>
        </record>
 
 
+        <record id="hrm_phongban_kanban" model="ir.ui.view">
+            <field name="name">Phòng Ban</field>
+            <field name="model">hrm.phongban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="diachi"/>
+                    <field name="sdt"/>
+                    <field name="sonv"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                 <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name" />
+                                    </strong>
+                                    <br/>
+                                     SDT Liên hệ: <field name="sdt" /> <br/>
+                                     Địa chỉ: <field name="diachi" /> <br/>
+                                     Số nhân viên: <field name="sonv" />
+                                </div>
+                            </div>
+
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="hrm_phongban_tree" model="ir.ui.view">
+            <field name="name">Phòng Ban</field>
+            <field name="model">hrm.phongban</field>
+            <field name="arch" type="xml">
+                <tree string="Phòng Ban">
+                    <field name="name"/>
+                    <field name="diachi" />
+                    <field name="sdt"></field>
+                    <field name="sonv"></field>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hrm_phongban_form" model="ir.ui.view">
+            <field name="name">Phòng Ban</field>
+            <field name="model">hrm.phongban</field>
+            <field name="arch" type="xml">
+                <form string="Phòng Ban">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Tên phòng ban"/>
+                            </h1>
+                        </div>
+                        <group>
+                                <field name="sdt"></field>
+                                <field name="diachi"></field>
+                                <field name="nhanvien"></field>
+                                <field name="sonv"></field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
     </data>
 </odoo>
