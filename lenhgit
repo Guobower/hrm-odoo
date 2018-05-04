@@ -1,0 +1,12 @@
+lenh git can nho:
+
+- tao branch moi: 
+	git branch <tenbranch>
+-check out:
+	git checkout <tenbranch>
+-git add:
+	git add .
+-git commit:
+	git commit -m "<noidung>"
+-git push:
+	git push origin <tenbranch>
